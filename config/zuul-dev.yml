@@ -20,17 +20,17 @@ eureka:
       defaultZone: http://eureka1:2001/eureka, http://eureka2:2002/eureka
       
 zuul:
-#  retryable: true  #允许重试
-  routes:
-    item-service: /item-service/**
-    user-service: /user-service/**
-    order-service: /order-service/**
+  retryable: true  #允许重试
+#  routes:
+#    item-service: /item-service/**
+#    user-service: /user-service/**
+#    order-service: /order-service/**
 
-#ribbon:
-#  ConnectTimeout: 1000  #连接超时
-#  ReadTimeout: 1000    #响应超时
-#  MaxAutoRetriesNextServer: 1   #下一台服务器最大连接次数
-#  MaxAutoRetries: 1    #当前服务器最大连接次数默认是0
+ribbon:
+  ConnectTimeout: 1000  #连接超时
+  ReadTimeout: 1000    #响应超时
+  MaxAutoRetriesNextServer: 1   #下一台服务器最大连接次数
+  MaxAutoRetries: 1    #当前服务器最大连接次数默认是0
   
 hystrix:
   command:
@@ -38,7 +38,7 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 1000
+            timeoutInMilliseconds: 500
             
 
 #监控端点 m.e.w.e.i
